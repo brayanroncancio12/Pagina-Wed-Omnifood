@@ -1,0 +1,345 @@
+/*
+---- 01 TYPOGRAPHY  SYSTEM
+
+
+-FONT SIZES (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 
+/ 44 / 52 / 62 / 74 / 86 / 98
+
+-FONT WEIGHTS:
+Default:400
+mediun:500
+semi-bold:600
+bold:700
+
+
+
+
+-LINE HEIGHTS:
+Default: 1 
+samall1.05
+paragraph default 1.6
+medium 1.2
+large 1.8
+
+
+- Letter spacing
+-0.5px
+0.75px
+
+
+
+---- 02 COLORS
+
+-Primary:  #e67e22
+-Tints: 
+#fdf2e9
+#fae5d3
+#eb984e
+
+-Shades:
+#cf711f
+#45260a
+-Accents
+-Greys:
+#888
+#767676(lightest grey allowed on #fff
+#6F6F6F(lightest grey allowed on #fdf2e9)
+#555 
+#333
+
+
+
+---- 05 SHADOWS 
+
+ 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+---- 06 BORDER-RADIUS 
+
+default:9px
+medium:11px
+
+
+---- 07 WHITESPACE 
+
+-SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 
+/ 64 / 80 / 96 / 128
+
+*/
+
+/* esto siempre tiene que ir 
+es para resetear todos los defaults 
+de cualquier pagina */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* si cambiaos el tamaño de letra 
+  en el html los rem tomaran esos pixeles*/
+  /* font-size: 10px; */
+  /* 10px/16px = 0.625 =62.5% */
+  /* porcentange of user's browers font.size 
+  settings  */
+  font-size: 62.5%;
+  /* todos los elemnetos que desborde horizontamente estaran escondidos gracias a esta propiedad  */
+  overflow-x: hidden;
+
+  /* para animar la barra de desplazamiento, no sirve en safari */
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
+
+/* *****+************** */
+/*  GENERAL REUSABLE COMPONENTS */
+/* *****+************** */
+
+/*  este contenedor es el que siempore 
+vamos a usar para centrar el contenido dentro 
+del view port, se puede agregar a cualquier 
+clase */
+.container {
+  /* 114px */
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+/* para reutilizar el codigo grid  */
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+
+  /* no lo usamos aca porque es retutiizable y depronto
+  no lo queremos en otro layout  */
+  /* align-items: center; creamos otra clase solo para eso
+  y lo agregamos donde lo necesitomos 
+  clase creada .grid--center--v */
+
+  /* esto se usa para agregar espacio abajo de la seccion de pricing ya que s i no lo usamos, la seccion de feature quedaria pegada a la seccion princing pero esto nos genrea un problema nos agrega espacio a las otras secciones que contiene grid */
+  /* margin-bottom: 9.6rem; */
+}
+
+/* este lo usamos para arreglar el espacio que creo el marrgin-bottom a las secciones que no queremos   */
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+
+/* este lo usmaos para hacer lo mismo que los dos anteriores pero mucho mejor ya que creamos una clase para eso, esto quiere decir que se agrega esa margen pero no para el ultimo hijo o ultimo elemento   */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+/* se selecionan los dos y se ponene el estilo y todo lo que tengan en comun   */
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  /* color: #2e1907; */
+  /* espara el espacio entre letras  */
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  /* 52px */
+  font-size: 5.2rem;
+  line-height: 1.05;
+  /* espara el espacio entre letras  */
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.subheading {
+  /*lo volvemos block porque span es a inline block element  */
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+/* toca selecionaralos con pseudo 
+porque son link  */
+.btn,
+.btn:link,
+.btnv:visited {
+  display: inline-block;
+
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  /* para los border se usa px  */
+  border-radius: 9px;
+
+  /* necesario solo para .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  /* truco para hacer una transicion
+  y animar el color, put transition on 
+  original state  */
+  /* transition: background-color 0.3s; */
+
+  /* para que se vea mas fluido todo el background y el border  */
+  transition: all 0.3s;
+}
+
+/* esto se hace para poner los stilos 
+especificos de cada boton, butto--full es el boton mas importante y el que tiene que resltar   */
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  /* color es para las letras  */
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+/* button-outline este boton no tiene que resaltar tanto ya que no es tan importnate  */
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+
+  /* border: 3px solid white; */
+
+  /* trick to add border inside  */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  /* le ponemos el misma que ctas-form */
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  /* currentcolor tomara el color del texto ya puesto anteriormente para no repetir el color  */
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  /* transparent se usa para quitar el borde sin quitar px  */
+  border-bottom: 1px solid transparent;
+}
+
+/* lista reutilizable por eso la cambiamos a general css  */
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.list-item {
+  font-size: 1.8rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
+}
+
+/* ************************* */
+/* HELPER/SETTINGS CLASSES */
+/* ************************* */
+
+/* es una clase reutilizable solo 
+para margenes  */
+.margin-right-sm {
+  margin-right: 1.6rem;
+}
+
+/* creamos esta clase reusable para agregar margin bottom a objetos sin tener que altera las otras clases reusables, la podemos agregar a cualquier elemento que queramos   */
+.margin-bottom-md {
+  margin-bottom: 4.2rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* es para que siempre que le coloquemos strong en algun momento en html tengo 500 y no 700 de font weight  */
+strong {
+  font-weight: 500;
+}

@@ -1,0 +1,734 @@
+/* *****+************** */
+/* HEADER */
+/* *****+************** */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdf2e9;
+  /* because we want header to be sticky later  */
+  height: 9.6rem;
+  padding: 0 4.8rem;
+  /* para que funcione overflow ponemos position:relative ya que queremos pudimos positon:absolute en main.nav */
+  position: relative;
+}
+
+.logo {
+  height: 2.2rem;
+}
+
+/* *****+************** */
+/* NAVAGITION  */
+/* *****+************** */
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  gap: 4.8rem;
+  align-items: center;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  /* transcinion de color a color  */
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #cf711f;
+}
+
+/* para estar seguro que simepre se 
+va aplicar le ponemos la otra clase sin 
+espacio y el selctor cambia a 3 
+, todo los de main-nav-link 
+tambien se aplica  */
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: #cf711f;
+}
+
+/* MOBILE BUTTON */
+/* esto lo creamos para crear un menu para cuando la pagina se use en un celular y no se muestre la barra de navegacion  */
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  /* se usa para esconder el button  */
+  display: none;
+}
+
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+
+/* este selector lo utilizamos asi para seleccionar el icono que queremos esconder en este caso es el de cerrar */
+.icon-mobile-nav[name="close-outline"] {
+  /* se usa para esconder el icono seleccionado  */
+  display: none;
+}
+
+/*STICKY NAVIGATION */
+
+.sticky .header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.97);
+  z-index: 999;
+  box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.3);
+}
+
+.sticky .section-hero {
+  margin-top: 9.6rem;
+}
+
+/* *****+************** */
+/* HERO SECTION  */
+/* *****+************** */
+
+.section-hero {
+  background-color: #fdf2e9;
+  padding: 4.8rem 0 9.6rem 0;
+}
+
+.hero {
+  /* 1300px */
+  max-width: 130rem;
+  /* para centrar en el view port */
+  margin: 0 auto;
+  padding: 0 3.2rem;
+  display: grid;
+  /* para que la dos 
+  cloumnas tengan el mismo tamaño  */
+  grid-template-columns: 1fr 1fr;
+  gap: 9.6rem;
+  align-items: center;
+}
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.hero-img {
+  /* queda del mismo tamaño que
+  el contenedor donde se encuentra 
+  hero-img-box */
+  width: 100%;
+}
+
+.delivered-meals {
+  /* usamos flex porque no 
+  nos importa el tañamo de las 
+  columnas  */
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-top: 8rem;
+}
+
+.delivered-img {
+  display: flex;
+}
+
+/* seleciona la clase y el elemento  */
+.delivered-img img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+  /* se uso para 
+  unir las imagenes  */
+  margin-right: -1.6rem;
+  border: 3px solid #fdf2e9;
+}
+
+/* se uso para que la ultima imagen 
+no tengo margen y  asi podamos tener 
+el espacion entre la imagen y el texto  */
+.delivered-img img:last-child {
+  margin: 0;
+}
+
+.delivered-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.delivered-text span {
+  color: #cf711f;
+  font-weight: 700;
+}
+/* *****+************** */
+/* FEATURED IN SECTION */
+/* *****+************** */
+
+.section-featured {
+  padding: 4.8rem 0 3.2rem 0;
+}
+
+.heading-fetured-in {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #888;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logos img {
+  height: 3.2rem;
+  /* esto es para cambiar a gris los 
+  colores de las imagenes uno pone el porcentaje, tiene otros propiedades que se pueden utilizar en imagenes  */
+  /* filter: grayscale(100%); */
+  /* esto deja la imagen de color negro */
+  filter: brightness(0);
+  /* aclara el color a grises con porcentaje   */
+  opacity: 50%;
+}
+
+/* *****+************** */
+/* HOW IT WORKS SECTION */
+/* *****+************** */
+
+.section-how {
+  padding: 9.6rem 0;
+}
+.step-number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 1.2rem;
+}
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+.step-img-box {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-img-box::before,
+.step-img-box::after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  padding-bottom: 60%;
+
+  position: absolute;
+  /* esto sirve para ponerlo detras de las imagenes */
+  z-index: -1;
+}
+
+/* para agregar un circulo destras de las imgenes  */
+.step-img-box::before {
+  width: 60%;
+  /* height: 60%; */
+  /* trick para volverlo altura 60% */
+  background-color: #fdf2e9;
+  z-index: -1;
+}
+
+.step-img-box::after {
+  width: 45%;
+  padding-bottom: 45%;
+  background-color: #fae5d3;
+}
+
+.step-img {
+  width: 35%;
+}
+
+/* *****+************** */
+/* SAMPLE MEALS SECTION */
+/* *****+************** */
+
+/* usamos simepre le mismo padding entre secciones para mantener consistencia  */
+.section-meals {
+  padding: 9.6rem 0;
+}
+
+.meal {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  /* para que la imagen tambien quede redonda en la parte de arriba  */
+  overflow: hidden;
+  /* para animar y poder usar bien hover se usa en el meal original  */
+  transition: all 0.4s;
+}
+
+/* se usa para que la cartas de los meals cuando se seleccionen sobresalgan  */
+.meal:hover {
+  transform: translateY(-1.2rem);
+  /* usamos la sombra para que se vea mas real */
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.meal-content {
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+
+.meal-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+/* se les agrega otras clase para que cada uno tenga su background color respectivamene  */
+
+.tag--vegetarian {
+  background-color: #51cf66;
+}
+.tag--vegan {
+  background-color: #94d82d;
+}
+.tag--paleo {
+  background-color: #ffd43b;
+}
+
+.meal-tittle {
+  font-size: 2rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+.meal-attributes {
+  /* para quitar los bullets de la listas o para agregar  */
+  list-style: none;
+  /* usamos flexbox para agregar gap a los 
+  atributos de la lista pero cambiamos la direccion para que lo aplique verticalmente ya que flexbox lo hace horizontal  */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 4, 8;
+}
+
+.meal-attribute {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.meal-icon {
+  /* se le pone color 
+  porque los icononos en este caso 
+  son considerados texto, si no se utilizaria stroke o fill
+  respectivamente */
+  height: 2.4rem;
+  width: 2.4rem;
+  color: #e67e22;
+}
+
+.meal-img {
+  width: 100%;
+}
+
+.all-recipes {
+  text-align: center;
+  /* usamos font size aca porque si reutilizamos la clase link aveces no queremos la misma font size para todos uestros links  */
+  font-size: 1.8rem;
+}
+
+/* *****+************** */
+/* SECTION-TESTIMONIALS   */
+/* *****+************** */
+
+.section-testimonials {
+  /* se uso para crear un contarste entre las otras secciones  */
+  background-color: #fdf2e9;
+  display: grid;
+  /* se puede utilizar como porcentaje , aqui lo usamos para resudir la columna de las imagnes  */
+  grid-template-columns: 55fr 45fr;
+  /* lo usamos para que las imagenes queden centradas y no creen espacio entre ellas cuando se minimize la pantalla */
+  align-items: center;
+}
+
+.testimonials-container {
+  padding: 9.6rem;
+}
+
+/* no usamos el grid reutilizables ya que esta echo para grandes layouts enronces les creamos uno aparte  */
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
+  /*  nunca se debe tener el miso espacio entre columnas y filas. columnas simpre se snecesitamas  */
+  column-gap: 8rem;
+}
+
+/* no queremos que la imagen sea flexible por eso no usamos porsentage  */
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+
+.gallery-item {
+  /* trcik para que la imagen no pase los cuadros de grid y se vea mas estitico  */
+  overflow: hidden;
+}
+
+.gallery-item img {
+  /* se cambia block porque las imagenes son inlineblock y crean un spacio entre ellas se cambia para quitar ese espacio */
+  display: block;
+  width: 100%;
+  /* para animar  */
+  transition: all 0.4s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+
+/* *****+************** */
+/* SECTION-PRICING   */
+/* *****+************** */
+
+.section-pricing {
+  padding: 9.6rem 0;
+}
+
+.pricing-plan {
+  border-radius: 11px;
+  /* para que no ocupe todas el espacio del grid  */
+  width: 75%;
+}
+
+/* creamos otra clase para poder moover el contenido al final de la celda del grid utilizando justify self para que tenga un mejor diseño, esto se hace ya que no ocupamos todo el espacio de la celda del grid  */
+.pricing-plan--starter {
+  justify-self: end;
+  /* le agregamos borde para que no se vea perdido */
+  border: 2px solid #fdf2e9;
+  /* le agregamos un padding menor para poder agregar el border y que quede del mismo mañado del otro plan  */
+  padding: 4.6rem;
+}
+
+/* lo creamos para hacer mas visible el segundo ya que la compañia gana mas dinero y es que queremos que la gente seleccione  */
+.pricing-plan--complete {
+  background-color: #fdf2e9;
+  /* padding completo  */
+  padding: 4.8rem;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-plan--complete::after {
+  content: "Best Value";
+  position: absolute;
+  top: 6%;
+  right: -18%;
+
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  background-color: #ffd43b;
+  padding: 0.8rem 8rem;
+  transform: rotate(45deg);
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+.plan-name {
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+
+.plan-price span {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 0.8rem;
+}
+
+.plan-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+.plan-sing-up {
+  text-align: center;
+  margin-top: 4.8rem;
+}
+
+/* *****+************** */
+/* FEATURE */
+/* *****+************** */
+
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.feature-icon {
+  color: #e67e22;
+  height: 3.2rem;
+  width: 3.2rem;
+  background-color: #fdf2e9;
+  margin-bottom: 3.2rem;
+  padding: 1.6rem;
+  border-radius: 50%;
+}
+
+.feature-tittle {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+
+.feature-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+/* ************************* */
+/* SECTION CTA */
+/* ************************* */
+
+.section-cta {
+  /* top / right /bottom/left */
+  /* padding: 4.8rem 0 12.8rem 0; */
+
+  /* top / horizontal/left */
+  padding: 4.8rem 0 12.8rem;
+}
+
+.cta {
+  /* tambien se puede usar flex, pero en este proyecto estamos usando grid para los layout grandes y flexbox para los pequeños  */
+  display: grid;
+  /* 2fr para que la primera columna sea el doble que 1fr */
+  /* 2/3 = 66.6% + 1/3 = 33.3% */
+  grid-template-columns: 2fr 1fr;
+  /* background-color: #e67e22; */
+  /* usamos la misma sombra para tener consistencia  */
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  border-radius: 11px;
+
+  /* para hacer degradado  */
+  background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+  overflow: hidden;
+}
+
+.cta-text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #45260a;
+}
+
+.cta .heading-secondary {
+  /* para heredar el color, porque cta-text-box es elemnto padre    */
+  color: inherit;
+  margin-bottom: 3.2rem;
+}
+
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.cta-img-box {
+  /* los dos puntos son para moverse una carpeta atras en este cas al la carpeta principal y asi poder buscar la imgaen  */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(235, 151, 78, 0.3),
+      rgba(230, 125, 34, 0.3)
+    ),
+    url("../img/eating.jpg");
+  /* cover para que ocupe todo el campo  */
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+
+.cta-form label {
+  /* esto para que el label se ponga en una sola linea y no al lado de ella  */
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+.cta-form input,
+.cta-form select {
+  /* para que ocupe todo el espacio del parent  */
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  /* se usa para inherit para heredar el tipo de letra y que quede igual que el resto ya que el input tiene una diferente, tambien se puede usar para otras situaciones no solo el tipo de letra */
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-form input::placeholder {
+  color: #aaa;
+}
+
+.cta *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
+}
+
+/* ************************* */
+/* FOOTER */
+/* ************************* */
+
+.footer {
+  padding: 12.8rem 0;
+  border-top: 1px solid #eee;
+}
+
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+
+.logo-col {
+  /* se uso para poner el copyright en efinal alineado con los otros  */
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: 3.2rem;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.social-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.copyright {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #767676;
+  /* esto es para ponerlo alineado con los links  */
+  margin-top: auto;
+}
+
+.contacts {
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.address {
+  margin-bottom: 2.4rem;
+}
+
+.footer-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+.footer-nav {
+  list-style: none;
+  display: flex;
+
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+  transition: all 0.3s;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: #555;
+}
